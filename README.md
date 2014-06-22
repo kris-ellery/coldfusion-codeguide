@@ -1,6 +1,6 @@
-# ColdFusion Syntax
+# ColdFusion CodeGuide
 
-ColdFusion syntax reference for developers who are new to the language or need a quick refresh. 
+ColdFusion code guide for developers who are new to the language or need a quick refresh. 
 
 ## Table of Contents
 
