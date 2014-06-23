@@ -21,6 +21,7 @@ ColdFusion code guide for developers who are new to the language or need a quick
 ---
 
 ## <a name="variables">Variables</a>
+**Tag notation**
 ```coldfusion
 <!--- Set variable --->
 <cfset padawan = "Kris">
@@ -30,6 +31,18 @@ ColdFusion code guide for developers who are new to the language or need a quick
 
 <!--- Variable dump --->
 <cfdump var = "#padawan#">
+```
+
+**Script notation**
+```coldfusion
+<!--- Set variable --->
+var padawan = "Kris";
+
+<!--- Variable output --->
+WriteOutput(padawan);
+
+<!--- Variable dump --->
+WriteDump(padawan);
 ```
 
 ---
