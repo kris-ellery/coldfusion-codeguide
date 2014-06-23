@@ -144,8 +144,8 @@ ColdFusion code guide for developers who are new to the language or need a quick
 ## <a name="comparison-and-logical-operators">Comparison and Logical Operators</a>
 | Description | Tag operator | Script operator |
 | --- | --- | --- |
-| Equal | is, equal, eq  | ==, === |
-| Not equal | is not, not equal, neq | !=, !== |
+| Equal | is, equal, eq  | == |
+| Not equal | is not, not equal, neq | != |
 | Greater than | gt, greater than | > |
 | Greater than or equal | greater than or equal to, ge, gte | >= |
 | Less than | lt, less than | < |
