@@ -271,15 +271,17 @@ ColdFusion code guide for developers who are new to the language or need a quick
 ---
 
 ## <a name="loops">Loops</a>
+
+**Tag notation**
 ```cfm
 <!--- Loop --->
 <cfloop from="1" to="10" index="i">
-  #i#
+  <cfoutput>#i#</cfoutput>
 </cfloop>
 
 <!--- Loop break --->
 <cfloop from="1" to="10" index="i">
-  #i#
+  <cfoutput>#i#</cfoutput>
   <cfbreak>
 </cfloop>
 
@@ -288,8 +290,46 @@ ColdFusion code guide for developers who are new to the language or need a quick
   <cfif i mod 2 eq 0>
     <cfcontinue>
   </cfif>
-  #i#
+  <cfoutput>#i#</cfoutput>
 </cfloop>
+```
+
+**Script notation**
+```cfm
+<cfscript>
+  // Loop
+  for (i=1; i <= 10; i++) {
+    WriteOutput(i);
+  }
+
+  // Loop break
+  for (i=1; i <= 10; i++) {
+    WriteOutput(i);
+    break;
+  }
+
+  // Loop skip
+  for (i=1; i <= 10; i++) {
+    if (i mod 2 == 0) {
+      continue;
+    }
+    WriteOutput(i);
+  }
+
+  // While loop
+  k = 0;
+  while (k < 10) {
+    k++;
+    WriteOutput(k);
+  }
+
+  // Do/While loop
+  s = 0;
+  do {
+    s++;
+    WriteOutput(s);
+  } while (s LT 10);
+</cfscript>
 ```
 
 ---
