@@ -150,8 +150,10 @@ ColdFusion code guide for developers who are new to the language or need a quick
 ## <a name="switch-case">Switch Case</a>
 **Tag notation**
 ```cfm
+<!--- Set variable --->
 <cfset padawan = "Kris">
 
+<!--- Switch case statement --->
 <cfswitch expression="#padawan#">
   <cfcase value="Kris">
 
@@ -171,19 +173,22 @@ ColdFusion code guide for developers who are new to the language or need a quick
 **Script notation**
 ```cfm
 <cfscript>
-  var padawan = "Kris";
+  // Set variable
+  jedi = "Yoda";
 
-  switch(padawan) {
-    case "Kris":
+  // Switch case statement
+  switch(jedi) {
+    case "Yoda":
 
       break;
-    case "Randy":
+    case "Obi-Wan Kenobi":
 
       break;
-    case "Sean": case "Jake":
+    case "Qui-Gon Jinn": case "Mace Windu":
 
       break;
     default:
+
       break;
   }
 </cfscript>
