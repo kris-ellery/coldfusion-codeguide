@@ -153,6 +153,8 @@ ColdFusion code guide for developers who are new to the language or need a quick
 | And | and | &amp;&amp; |
 | Or | or | &#124;&#124; |
 
+[Operator Types](http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WSc3ff6d0ea77859461172e0811cbec09d55-7ffc.html)
+
 **Tag notation**
 ```coldfusion
 <!--- Simple if/elseif/else --->
@@ -174,7 +176,7 @@ ColdFusion code guide for developers who are new to the language or need a quick
   // Simple if/elseif/else
   if (myVar === "something") {
   
-  } else if(myVar === "something-else") {
+  } else if (myVar === "something-else") {
   
   } else {
   
@@ -184,8 +186,6 @@ ColdFusion code guide for developers who are new to the language or need a quick
   var kris = (side === "light") ? "jedi" : "sith";
 </cfscript>
 ```
-
-[Operator Types](http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WSc3ff6d0ea77859461172e0811cbec09d55-7ffc.html)
 
 ---
 
