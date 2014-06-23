@@ -53,6 +53,8 @@ ColdFusion code guide for developers who are new to the language or need a quick
 
 ## <a name="arrays">Arrays</a>
 
+[Array Functions](http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WSc3ff6d0ea77859461172e0811cbec09f0b-8000.html)
+
 **Tag notation**
 ```cfm
 <!--- Set array --->
@@ -83,11 +85,11 @@ ColdFusion code guide for developers who are new to the language or need a quick
 </cfscript>
 ```
 
-[Array Functions](http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WSc3ff6d0ea77859461172e0811cbec09f0b-8000.html)
-
 ---
 
 ## <a name="structures">Structures</a>
+
+[Structure Functions](http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WSc3ff6d0ea77859461172e0811cbec22c24-6210.html)
 
 **Tag notation**
 ```cfm
@@ -142,8 +144,6 @@ ColdFusion code guide for developers who are new to the language or need a quick
   }
 </cfscript>
 ```
-
-[Structure Functions](http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WSc3ff6d0ea77859461172e0811cbec22c24-6210.html)
 
 ---
 
@@ -212,33 +212,59 @@ ColdFusion code guide for developers who are new to the language or need a quick
 
 **Tag notation**
 ```cfm
-<!--- Simple if/elseif/else --->
-<cfif myVar eq "something">
+<!--- Set variable --->
+<cfset age = 10>
 
-<cfelseif myVar eq "something-else">
+<!--- Simple if/elseif/else --->
+<cfif age eq 15>
+
+<cfelseif age gte 30>
+
+<cfelseif age lte 5>
+
+<cfelseif age gt 10 or age lt 10>
 
 <cfelse>
 
 </cfif>
 
+<!--- Set variable --->
+<cfset height = 3>
+
 <!--- Ternary operator --->
-<cfset kris = (side eq "light") ? "jedi" : "sith">
+<cfset jedi = (height lte 3) ? "Yoda" : "Obi-Wan Kenobi">
+
+<!--- Dump jedi --->
+<cfdump var="#jedi#">
 ```
 
 **Script notation**
 ```cfm
 <cfscript>
-  // Simple if/elseif/else
-  if (myVar === "something") {
+  // Set variable
+  count = 10;
 
-  } else if (myVar === "something-else") {
+  // Simple if/elseif/else
+  if (count == 15) {
+
+  } else if (count >= 30) {
+
+  } else if (count <= 5) {
+
+  } else if (count > 10 || count < 10) {
 
   } else {
 
   }
 
+  // Set variable
+  power = 7;
+
   // Ternary operator
-  var kris = (side === "light") ? "jedi" : "sith";
+  sith = (power <= 8) ? "Sidious" : "Vader";
+
+  // Dump sith
+  WriteDump(sith);
 </cfscript>
 ```
 
