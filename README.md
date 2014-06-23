@@ -35,14 +35,16 @@ ColdFusion code guide for developers who are new to the language or need a quick
 
 **Script notation**
 ```coldfusion
-<!--- Set variable --->
-var padawan = "Kris";
+<cfscript>
+  // Set variable
+  var padawan = "Kris";
 
-<!--- Variable output --->
-WriteOutput(padawan);
+  // Variable output
+  writeoutput(padawan);
 
-<!--- Variable dump --->
-WriteDump(padawan);
+  // Variable dump
+  writedump(padawan);
+</cfscript>
 ```
 
 ---
