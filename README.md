@@ -22,6 +22,7 @@ ColdFusion code guide for developers who are new to the language or need a quick
 
 ## <a name="variables">Variables</a>
 
+
 **Tag notation**
 ```cfm
 <!--- Set variable ---->
@@ -64,19 +65,6 @@ ColdFusion code guide for developers who are new to the language or need a quick
 <cfloop array="#padawans#" index="padawan">
   <cfoutput>#padawan#</cfoutput>
 </cfloop>
-
-<!--- Common array functions
-
-<cfset ArrayClear({:array})>
-<cfset ArrayAppend({:array}, {:value})>
-<cfset ArrayDelete({:array}, {:value})>
-<cfset ArrayDeleteAt({:array}, {:position})>
-<cfset ArrayInsertAt({:array}, {:position})>
-<cfset ArrayIsEmpty({:array})>
-<cfset ArrayLen({:array})>
-<cfset ArraySort({:array}, {numeric|text|textnocase}, {asc|desc})>
-
---->
 ```
 
 **Script notation**
@@ -92,46 +80,69 @@ ColdFusion code guide for developers who are new to the language or need a quick
   for (master in masters) {
     WriteOutput(master);
   }
-
-  /* Common array functions
-
-  ArrayClear({:array});
-  ArrayAppend({:array}, {:value});
-  ArrayDelete({:array}, {:value});
-  ArrayDeleteAt({:array}, {:position});
-  ArrayInsertAt({:array}, {:position});
-  ArrayIsEmpty({:array});
-  ArrayLen({:array});
-  ArraySort({:array}, {numeric|text|textnocase}, {asc|desc});
-
-  */
 </cfscript>
 ```
+
 [Array Functions](http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WSc3ff6d0ea77859461172e0811cbec09f0b-8000.html)
 
 ---
 
 ## <a name="structures">Structures</a>
+
+**Tag notation**
 ```cfm
 <!--- Set struct --->
 <cfset padawan = {}>
 
-<!-- Append item to struct using bracket notation --->
+<!-- Append item to struct using bracket notation (case sensitive) --->
 <cfset padawan["name"] = "Kris">
 
-<!--- Append item to struct using dot notation --->
-<cfset padawan.name = "Kris">
+<!--- Append item to struct using dot notation (case insensitive) --->
+<cfset padawan.side = "Light">
+
+<!--- Dumo struct --->
+<cfdump var="#padawan#">
 
 <!--- Set struct and append content in single statement --->
-<cfset padawan = {
-  "name": "Kris"
+<cfset master = {
+  "name": "Yoda",
+  "side": "Light"
 }>
 
 <!--- Loop over a struct --->
-<cfloop collection="#padawan#" item="key">
- #key#: #padawan[key]#
+<cfloop collection="#master#" item="key">
+  <cfoutput>#key#: #master[key]#</cfoutput>
 </cfloop>
 ```
+
+**Script notation**
+```cfm
+<cfscript>
+  // Set struct
+  sith = {};
+
+  // Append item to struct using bracket notation (case sensitive)
+  sith["name"] = "Vader";
+
+  // Append item to struct using dot notation (case insensitive)
+  sith.side = "Dark";
+
+  // Dump struct
+  WriteDump(sith);
+
+  // Set struct and append content in single statement
+  lord = {
+    "name": "Sidious",
+    "side": "Dark"
+  };
+
+  // Loop over struct
+  for (key in lord) {
+    WriteOutput("#key#: #lord[key]#");
+  }
+</cfscript>
+```
+
 [Structure Functions](http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WSc3ff6d0ea77859461172e0811cbec22c24-6210.html)
 
 ---
