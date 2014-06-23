@@ -136,6 +136,7 @@ ColdFusion code guide for developers who are new to the language or need a quick
     default: 
       break;
   }
+</cfscript>
 ```
 
 ---
