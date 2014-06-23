@@ -335,18 +335,47 @@ ColdFusion code guide for developers who are new to the language or need a quick
 ---
 
 ## <a name="json">JSON</a>
+
+**Tag notation**
 ```cfm
-<!--- JSON --->
-<cfset padawan = {
-  "name": "Kris",
-  "city": "Charlotte",
-  "state": "NC"
+<!--- Set struct --->
+<cfset jedi = {
+  "name": "Luke Skywalker",
+  "side": "Light",
+  "starfighter": "X-Wing"
 }>
 
-<cfset toJSON = serializeJSON(padawan)>
-<cfset fromJSON = deserializeJSON(toJSON)>
+<!--- Serialize to JSON --->
+<cfset jediToJSON = serializeJSON(jedi)>
 
-<cfdump var = "#isJson(toJSON)#">
+<!--- Deserialize from JSON --->
+<cfset jediFromJSON = deserializeJSON(jediToJSON)>
+
+<!--- Dump --->
+<cfdump var = "#jediToJSON#">
+<cfdump var = "#jediFromJSON#">
+```
+
+**Script notation**
+```cfm
+<cfscript>
+  // Set struct
+  sith = {
+    "name": "Darth Vader",
+    "side": "Dark",
+    "starfighter": "TIE fighter"
+  };
+
+  // Serialize to JSON
+  sithToJSON = serializeJSON(sith);
+
+  // Deserialize from JSON
+  sithFromJSON = deserializeJSON(sithToJSON);
+
+  // Dump
+  WriteDump(sithToJSON);
+  WriteDump(sithFromJSON);
+</cfscript>
 ```
 
 ---
