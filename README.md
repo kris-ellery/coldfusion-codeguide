@@ -142,26 +142,49 @@ ColdFusion code guide for developers who are new to the language or need a quick
 ---
 
 ## <a name="comparison-and-logical-operators">Comparison and Logical Operators</a>
+| Description | Tag operator | Script operator |
+| --- | --- | --- |
+| Equal | is, equal, eq  | ==, === |
+| Not equal | is not, not equal, neq | !=, !== |
+| Greater than | gt, greater than | > |
+| Greater than or equal | greater than or equal to, ge, gte | >= |
+| Less than | lt, less than | < |
+| Less than or equal | less than or equal to, le, lte | <= |
+| And | and | &amp;&amp; |
+| Or | or | &#124;&#124; |
+
+**Tag notation**
 ```coldfusion
-<!--- Comparison and Logical Operators
-  
-  # Equal:                    is, equal, eq
-  # Not equal:                is not, not equal, neq
-  # Greater than:             gt, greater than
-  # Greater than or equal:    gte
-  # Less than:                lt, less than
-  # Less than or equal:       lte
-
-  # And:                      and
-  # Or:                       or
-
---->
+<!--- Simple if/elseif/else --->
 <cfif myVar eq "something">
 
 <cfelseif myVar eq "something-else">
 
 <cfelse>
+
+</cfif>
+
+<!--- Ternary operator --->
+<cfset kris = (side eq "light") ? "jedi" : "sith">
 ```
+
+**Script notation**
+```coldfusion
+<cfscript>
+  // Simple if/elseif/else
+  if (myVar === "something") {
+  
+  } else if(myVar === "something-else") {
+  
+  } else {
+  
+  }
+  
+  // Ternary operator
+  var kris = (side === "light") ? "jedi" : "sith";
+</cfscript>
+```
+
 [Operator Types](http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WSc3ff6d0ea77859461172e0811cbec09d55-7ffc.html)
 
 ---
