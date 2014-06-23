@@ -98,12 +98,13 @@ ColdFusion code guide for developers who are new to the language or need a quick
 ---
 
 ## <a name="switch-case">Switch Case</a>
+**Tag notation**
 ```coldfusion
 <cfset padawan = "Kris">
 
 <cfswitch expression="#padawan#">
   <cfcase value="Kris">
-  
+
   </cfcase>
   <cfcase value="Randy">
   
@@ -115,6 +116,26 @@ ColdFusion code guide for developers who are new to the language or need a quick
   
   </cfdefaultcase>
 </cfswitch>
+```
+
+**Script notation**
+```coldfusion
+<cfscript>
+  var padawan = "Kris";
+
+  switch(padawan) {
+    case "Kris":
+    
+      break;
+    case "Randy":
+    
+      break;
+    case "Sean": case "Jake":
+    
+      break;
+    default: 
+      break;
+  }
 ```
 
 ---
