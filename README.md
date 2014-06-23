@@ -1,6 +1,6 @@
 # ColdFusion CodeGuide
 
-ColdFusion code guide for developers who are new to the language or need a quick refresh. 
+ColdFusion code guide for developers who are new to the language or need a quick refresh.
 
 ## Table of Contents
 
@@ -21,15 +21,16 @@ ColdFusion code guide for developers who are new to the language or need a quick
 ---
 
 ## <a name="variables">Variables</a>
+
 **Tag notation**
 ```cfm
-<!--- Set variable --->
+<!--- Set variable ---->
 <cfset padawan = "Kris">
 
-<!--- Variable output --->
+<!--- Variable output ---->
 <cfoutput>#padawan#</cfoutput>
 
-<!--- Variable dump --->
+<!--- Variable dump ---->
 <cfdump var = "#padawan#">
 ```
 
@@ -37,36 +38,74 @@ ColdFusion code guide for developers who are new to the language or need a quick
 ```cfm
 <cfscript>
   // Set variable
-  var padawan = "Kris";
+  master = "Yoda";
 
   // Variable output
-  writeoutput(padawan);
+  WriteOutput(master);
 
   // Variable dump
-  writedump(padawan);
+  WriteDump(master);
 </cfscript>
 ```
 
 ---
 
 ## <a name="arrays">Arrays</a>
+
+**Tag notation**
 ```cfm
 <!--- Set array --->
-<cfset padawans = []>
+<cfset padawans = [ "Randy", "Sean", "Jake" ]>
 
-<!--- Append item to array --->
-<cfset ArrayAppend(padawans, "Kris")>
-
-<!--- Delete item from array --->
-<cfset ArrayDelete(padawans, "Kris")>
-
-<!--- Delete item from array by position --->
-<cfset ArrayDeleteAt(padawans, 1)>
+<!--- Array dump --->
+<cfdump var="#padawans#">
 
 <!--- Loop over array --->
-<cfloop array="#padawans#" item="padawan">
-  #padawan#
+<cfloop array="#padawans#" index="padawan">
+  <cfoutput>#padawan#</cfoutput>
 </cfloop>
+
+<!--- Common array functions
+
+<cfset ArrayClear({:array})>
+<cfset ArrayAppend({:array}, {:value})>
+<cfset ArrayDelete({:array}, {:value})>
+<cfset ArrayDeleteAt({:array}, {:position})>
+<cfset ArrayInsertAt({:array}, {:position})>
+<cfset ArrayIsEmpty({:array})>
+<cfset ArrayLen({:array})>
+<cfset ArraySort({:array}, {numeric|text|textnocase}, {asc|desc})>
+
+--->
+```
+
+**Script notation**
+```cfm
+<cfscript>
+  // Set array
+  masters = [ "Garrett", "Colin", "Yoda" ];
+
+  // Array dump
+  WriteDump(masters);
+
+  // Loop over array
+  for (master in masters) {
+    WriteOutput(master);
+  }
+
+  /* Common array functions
+
+  ArrayClear({:array});
+  ArrayAppend({:array}, {:value});
+  ArrayDelete({:array}, {:value});
+  ArrayDeleteAt({:array}, {:position});
+  ArrayInsertAt({:array}, {:position});
+  ArrayIsEmpty({:array});
+  ArrayLen({:array});
+  ArraySort({:array}, {numeric|text|textnocase}, {asc|desc});
+
+  */
+</cfscript>
 ```
 [Array Functions](http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WSc3ff6d0ea77859461172e0811cbec09f0b-8000.html)
 
@@ -107,13 +146,13 @@ ColdFusion code guide for developers who are new to the language or need a quick
 
   </cfcase>
   <cfcase value="Randy">
-  
+
   </cfcase>
   <cfcase value="Sean, Jake">
-  
+
   </cfcase>
   <cfdefaultcase>
-  
+
   </cfdefaultcase>
 </cfswitch>
 ```
@@ -125,15 +164,15 @@ ColdFusion code guide for developers who are new to the language or need a quick
 
   switch(padawan) {
     case "Kris":
-    
+
       break;
     case "Randy":
-    
+
       break;
     case "Sean": case "Jake":
-    
+
       break;
-    default: 
+    default:
       break;
   }
 </cfscript>
@@ -175,13 +214,13 @@ ColdFusion code guide for developers who are new to the language or need a quick
 <cfscript>
   // Simple if/elseif/else
   if (myVar === "something") {
-  
+
   } else if (myVar === "something-else") {
-  
+
   } else {
-  
+
   }
-  
+
   // Ternary operator
   var kris = (side === "light") ? "jedi" : "sith";
 </cfscript>
@@ -236,10 +275,10 @@ ColdFusion code guide for developers who are new to the language or need a quick
 <cffunction name="myFunction" output="{true|false}" access="{public|private|remote}" returnType="{void|:type}">
   <!--- Function argument --->
   <cfargument name="myArgument" type="{:type}" required="{true|false}" default="{:default}">
-  
+
   <!--- Do work son! --->
   <cfset myVar = true>
-  
+
   <!--- Function return --->
   <cfreturn myVar>
 </cffunction>
@@ -259,14 +298,14 @@ ColdFusion code guide for developers who are new to the language or need a quick
 
   <!--- Set private scope --->
   <cfset variables.padawan = "Kris">
-  
+
   <!--- Set public function --->
   <cffunction name="getJedi" output="false" access="public" returnType="struct">
     <cfargument name="jediId" type="integer" required="true">
-    
+
     <!--- Do something to get jedi data using #arguments.jediId# --->
     <cfset jedi = {}>
-    
+
     <cfreturn jedi>
   </cffunction>
 </cfcomponent>
@@ -286,8 +325,8 @@ ColdFusion code guide for developers who are new to the language or need a quick
 ## <a name="database-queries">Database Queries</a>
 ```cfm
 <!--- Get data from database --->
-<cfquery name="myQuery" datasource="{:datasource}"> 
-    SELECT {:column-name} FROM {:table-name} 
+<cfquery name="myQuery" datasource="{:datasource}">
+    SELECT {:column-name} FROM {:table-name}
 </cfquery>
 
 <!--- Dump results --->
@@ -304,12 +343,12 @@ ColdFusion code guide for developers who are new to the language or need a quick
 </cfloop>
 
 <!--- Query caching --->
-<cfquery name="myQuery" datasource="{:datasource}" cachedwithin="#createTimespan(0,1,0,0)#"> 
-    SELECT {:column-name} FROM {:table-name} 
+<cfquery name="myQuery" datasource="{:datasource}" cachedwithin="#createTimespan(0,1,0,0)#">
+    SELECT {:column-name} FROM {:table-name}
 </cfquery>
 
 <!--- Query with query param --->
-<cfquery name="myQuery" datasource="{:datasource}"> 
+<cfquery name="myQuery" datasource="{:datasource}">
     SELECT {:column-name} FROM {:table-name}
     WHERE {:column-name} = <cfqueryparam value="{:value}" cfsqltype="{:cf_sql_type}">
 </cfquery>
@@ -334,7 +373,7 @@ ColdFusion code guide for developers who are new to the language or need a quick
 <cftry>
 
   <!--- Do work son! --->
-  
+
   <cfcatch type="{:type}">
     <!--- Handle exception --->
   </cfcatch>
@@ -347,7 +386,7 @@ ColdFusion code guide for developers who are new to the language or need a quick
 <cftry>
 
   <!--- Do work son! --->
-  
+
   <cfcatch type="{:type}">
     <cfthrow message="{:message}" type="{:type}" detail="{:detail}">
   </cfcatch>
@@ -357,7 +396,7 @@ ColdFusion code guide for developers who are new to the language or need a quick
 <cftry>
 
   <!--- Do work son! --->
-  
+
   <cfcatch type="{:type}">
     <!--- Handle exception --->
   </cfcatch>
@@ -384,9 +423,9 @@ ColdFusion code guide for developers who are new to the language or need a quick
   <body>
     <!--- Include "header.cfm" --->
     <cfinclude template="/_partials/header.cfm">
-    
+
     <!--- Do work son! --->
-    
+
     <!--- Include "footer.cfm" --->
     <cfinclude template="/_partials/footer.cfm">
   </body>
