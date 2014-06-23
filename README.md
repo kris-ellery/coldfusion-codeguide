@@ -22,7 +22,7 @@ ColdFusion code guide for developers who are new to the language or need a quick
 
 ## <a name="variables">Variables</a>
 **Tag notation**
-```coldfusion
+```cfm
 <!--- Set variable --->
 <cfset padawan = "Kris">
 
@@ -34,7 +34,7 @@ ColdFusion code guide for developers who are new to the language or need a quick
 ```
 
 **Script notation**
-```coldfusion
+```cfm
 <cfscript>
   // Set variable
   var padawan = "Kris";
@@ -50,7 +50,7 @@ ColdFusion code guide for developers who are new to the language or need a quick
 ---
 
 ## <a name="arrays">Arrays</a>
-```coldfusion
+```cfm
 <!--- Set array --->
 <cfset padawans = []>
 
@@ -73,7 +73,7 @@ ColdFusion code guide for developers who are new to the language or need a quick
 ---
 
 ## <a name="structures">Structures</a>
-```coldfusion
+```cfm
 <!--- Set struct --->
 <cfset padawan = {}>
 
@@ -99,7 +99,7 @@ ColdFusion code guide for developers who are new to the language or need a quick
 
 ## <a name="switch-case">Switch Case</a>
 **Tag notation**
-```coldfusion
+```cfm
 <cfset padawan = "Kris">
 
 <cfswitch expression="#padawan#">
@@ -119,7 +119,7 @@ ColdFusion code guide for developers who are new to the language or need a quick
 ```
 
 **Script notation**
-```coldfusion
+```cfm
 <cfscript>
   var padawan = "Kris";
 
@@ -156,7 +156,7 @@ ColdFusion code guide for developers who are new to the language or need a quick
 [Operator Types](http://help.adobe.com/en_US/ColdFusion/10.0/Developing/WSc3ff6d0ea77859461172e0811cbec09d55-7ffc.html)
 
 **Tag notation**
-```coldfusion
+```cfm
 <!--- Simple if/elseif/else --->
 <cfif myVar eq "something">
 
@@ -171,7 +171,7 @@ ColdFusion code guide for developers who are new to the language or need a quick
 ```
 
 **Script notation**
-```coldfusion
+```cfm
 <cfscript>
   // Simple if/elseif/else
   if (myVar === "something") {
@@ -190,7 +190,7 @@ ColdFusion code guide for developers who are new to the language or need a quick
 ---
 
 ## <a name="loops">Loops</a>
-```coldfusion
+```cfm
 <!--- Loop --->
 <cfloop from="1" to="10" index="i">
   #i#
@@ -214,7 +214,7 @@ ColdFusion code guide for developers who are new to the language or need a quick
 ---
 
 ## <a name="json">JSON</a>
-```coldfusion
+```cfm
 <!--- JSON --->
 <cfset padawan = {
   "name": "Kris",
@@ -231,7 +231,7 @@ ColdFusion code guide for developers who are new to the language or need a quick
 ---
 
 ## <a name="functions">Functions</a>
-```coldfusion
+```cfm
 <!--- Set function --->
 <cffunction name="myFunction" output="{true|false}" access="{public|private|remote}" returnType="{void|:type}">
   <!--- Function argument --->
@@ -251,7 +251,7 @@ ColdFusion code guide for developers who are new to the language or need a quick
 ---
 
 ## <a name="components">Components</a>
-```coldfusion
+```cfm
 <!--- Set component --->
 <cfcomponent>
   <!--- Set public scope --->
@@ -284,8 +284,7 @@ ColdFusion code guide for developers who are new to the language or need a quick
 ---
 
 ## <a name="database-queries">Database Queries</a>
-
-```coldfusion
+```cfm
 <!--- Get data from database --->
 <cfquery name="myQuery" datasource="{:datasource}"> 
     SELECT {:column-name} FROM {:table-name} 
@@ -319,8 +318,7 @@ ColdFusion code guide for developers who are new to the language or need a quick
 ---
 
 ## <a name="stored-procedures">Stored Procedures</a>
-
-```coldfusion
+```cfm
 <!--- Simple stored procedure --->
 <cfstoredproc procedure="myStoredProcedure" datasource="{:datasource}">
   <cfprocparam type="{in|out|inout}" cfsqltype="{:cf_sql_type}" value="{:value}">
@@ -331,8 +329,7 @@ ColdFusion code guide for developers who are new to the language or need a quick
 ---
 
 ## <a name="catch-try">Catch/Try</a>
-
-```coldfusion
+```cfm
 <!--- Try and catch exceptions --->
 <cftry>
 
@@ -373,8 +370,7 @@ ColdFusion code guide for developers who are new to the language or need a quick
 ---
 
 ## <a name="includes">Includes</a>
-
-```coldfusion
+```cfm
 <!--- Include --->
 <cfinclude template="path/to/include.cfm">
 
