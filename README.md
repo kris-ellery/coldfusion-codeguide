@@ -472,10 +472,12 @@ ColdFusion code guide for developers who are new to the language or need a quick
 ---
 
 ## <a name="database-queries">Database Queries</a>
+
+**Tag notation**
 ```cfm
 <!--- Get data from database --->
-<cfquery name="myQuery" datasource="{:datasource}">
-    SELECT {:column-name} FROM {:table-name}
+<cfquery name="myQuery" datasource="myDataSource">
+    SELECT id, name FROM jedi
 </cfquery>
 
 <!--- Dump results --->
@@ -483,35 +485,50 @@ ColdFusion code guide for developers who are new to the language or need a quick
 
 <!--- Output results --->
 <cfoutput query="#myQuery#">
-  #{:column-name}#
+  Id: #id#, Name: #name#
 </cfoutput>
 
 <!--- Loop over results --->
 <cfloop query="#myQuery#">
-  #{:column-name}#
+  <cfoutput>Id: #id#, Name: #name#</cfoutput>
 </cfloop>
 
 <!--- Query caching --->
-<cfquery name="myQuery" datasource="{:datasource}" cachedwithin="#createTimespan(0,1,0,0)#">
-    SELECT {:column-name} FROM {:table-name}
+<cfquery name="myQuery" datasource="myDataSource" cachedwithin="#createTimespan(0,1,0,0)#">
+    SELECT id, name FROM jedi
 </cfquery>
 
 <!--- Query with query param --->
-<cfquery name="myQuery" datasource="{:datasource}">
-    SELECT {:column-name} FROM {:table-name}
-    WHERE {:column-name} = <cfqueryparam value="{:value}" cfsqltype="{:cf_sql_type}">
+<cfquery name="myQuery" datasource="myDataSource">
+    SELECT id, name FROM jedi
+    WHERE id = <cfqueryparam value="7" cfsqltype="cf_sql_integer">
 </cfquery>
 ```
 
 ---
 
 ## <a name="stored-procedures">Stored Procedures</a>
+
+**Tag notation**
 ```cfm
 <!--- Simple stored procedure --->
-<cfstoredproc procedure="myStoredProcedure" datasource="{:datasource}">
-  <cfprocparam type="{in|out|inout}" cfsqltype="{:cf_sql_type}" value="{:value}">
+<cfstoredproc procedure="myStoredProcedure" datasource="myDataSource">
+  <cfprocparam type="in" cfsqltype="cf_sql_integer" value="7">
   <cfprocresult name="myStoredProcedureResults">
 </cfstoredproc>
+```
+
+**Script notation**
+```cfm
+<cfscript>
+  // Store procedure using "attribute-value" pairs
+  spService = new storedproc();
+  spService.setDatasource("myDataSource");
+  spService.setProcedure("myStoredProcedure");
+  spService.addParam(cfsqltype="cf_sql_integer", type="in", value="7";
+  spService.addProcResult(name="myStoredProcedureResults");
+  spService.execute();
+</cfscript>
 ```
 
 ---
