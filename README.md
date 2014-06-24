@@ -37,14 +37,16 @@ ColdFusion code guide for developers who are new to the language or need a quick
 
 **Script notation**
 ```cfm
-// Set variable
-master = "Yoda";
+<cfscript>
+  // Set variable
+  master = "Yoda";
 
-// Variable output
-WriteOutput(master);
+  // Variable output
+  WriteOutput(master);
 
-// Variable dump
-WriteDump(master);
+  // Variable dump
+  WriteDump(master);
+</cfscript>
 ```
 
 ---
@@ -69,16 +71,18 @@ WriteDump(master);
 
 **Script notation**
 ```cfm
-// Set array
-masters = [ "Garrett", "Colin", "Yoda" ];
+<cfscript>
+  // Set array
+  masters = [ "Garrett", "Colin", "Yoda" ];
 
-// Array dump
-WriteDump(masters);
+  // Array dump
+  WriteDump(masters);
 
-// Loop over array
-for (master in masters) {
-  WriteOutput(master);
-}
+  // Loop over array
+  for (master in masters) {
+    WriteOutput(master);
+  }
+</cfscript>
 ```
 
 ---
@@ -115,28 +119,30 @@ for (master in masters) {
 
 **Script notation**
 ```cfm
-// Set struct
-sith = {};
+<cfscript>
+  // Set struct
+  sith = {};
 
-// Append item to struct using bracket notation (case sensitive)
-sith["name"] = "Vader";
+  // Append item to struct using bracket notation (case sensitive)
+  sith["name"] = "Vader";
 
-// Append item to struct using dot notation (case insensitive)
-sith.side = "Dark";
+  // Append item to struct using dot notation (case insensitive)
+  sith.side = "Dark";
 
-// Dump struct
-WriteDump(sith);
+  // Dump struct
+  WriteDump(sith);
 
-// Set struct and append content in single statement
-lord = {
-  "name": "Sidious",
-  "side": "Dark"
-};
+  // Set struct and append content in single statement
+  lord = {
+    "name": "Sidious",
+    "side": "Dark"
+  };
 
-// Loop over struct
-for (key in lord) {
-  WriteOutput("#key#: #lord[key]#");
-}
+  // Loop over struct
+  for (key in lord) {
+    WriteOutput("#key#: #lord[key]#");
+  }
+</cfscript>
 ```
 
 ---
@@ -166,24 +172,26 @@ for (key in lord) {
 
 **Script notation**
 ```cfm
-// Set variable
-jedi = "Yoda";
+<cfscript>
+  // Set variable
+  jedi = "Yoda";
 
-// Switch case statement
-switch(jedi) {
-  case "Yoda":
+  // Switch case statement
+  switch(jedi) {
+    case "Yoda":
 
-    break;
-  case "Obi-Wan Kenobi":
+      break;
+    case "Obi-Wan Kenobi":
 
-    break;
-  case "Qui-Gon Jinn": case "Mace Windu":
+      break;
+    case "Qui-Gon Jinn": case "Mace Windu":
 
-    break;
-  default:
+      break;
+    default:
 
-    break;
-}
+      break;
+  }
+</cfscript>
 ```
 
 ---
@@ -232,30 +240,32 @@ switch(jedi) {
 
 **Script notation**
 ```cfm
-// Set variable
-count = 10;
+<cfscript>
+  // Set variable
+  count = 10;
 
-// Simple if/elseif/else
-if (count == 15) {
+  // Simple if/elseif/else
+  if (count == 15) {
 
-} else if (count >= 30) {
+  } else if (count >= 30) {
 
-} else if (count <= 5) {
+  } else if (count <= 5) {
 
-} else if (count > 10 || count < 10) {
+  } else if (count > 10 || count < 10) {
 
-} else {
+  } else {
 
-}
+  }
 
-// Set variable
-power = 7;
+  // Set variable
+  power = 7;
 
-// Ternary operator
-sith = (power <= 8) ? "Sidious" : "Vader";
+  // Ternary operator
+  sith = (power <= 8) ? "Sidious" : "Vader";
 
-// Dump sith
-WriteDump(sith);
+  // Dump sith
+  WriteDump(sith);
+</cfscript>
 ```
 
 ---
@@ -286,38 +296,40 @@ WriteDump(sith);
 
 **Script notation**
 ```cfm
-// Loop
-for (i=1; i <= 10; i++) {
-  WriteOutput(i);
-}
-
-// Loop break
-for (i=1; i <= 10; i++) {
-  WriteOutput(i);
-  break;
-}
-
-// Loop skip
-for (i=1; i <= 10; i++) {
-  if (i mod 2 == 0) {
-    continue;
+<cfscript>
+  // Loop
+  for (i=1; i <= 10; i++) {
+    WriteOutput(i);
   }
-  WriteOutput(i);
-}
 
-// While loop
-k = 0;
-while (k < 10) {
-  k++;
-  WriteOutput(k);
-}
+  // Loop break
+  for (i=1; i <= 10; i++) {
+    WriteOutput(i);
+    break;
+  }
 
-// Do/While loop
-s = 0;
-do {
-  s++;
-  WriteOutput(s);
-} while (s LT 10);
+  // Loop skip
+  for (i=1; i <= 10; i++) {
+    if (i mod 2 == 0) {
+      continue;
+    }
+    WriteOutput(i);
+  }
+
+  // While loop
+  k = 0;
+  while (k < 10) {
+    k++;
+    WriteOutput(k);
+  }
+
+  // Do/While loop
+  s = 0;
+  do {
+    s++;
+    WriteOutput(s);
+  } while (s LT 10);
+</cfscript>
 ```
 
 ---
@@ -346,22 +358,24 @@ do {
 
 **Script notation**
 ```cfm
-// Set struct
-sith = {
-  "name": "Darth Vader",
-  "side": "Dark",
-  "starfighter": "TIE fighter"
-};
+<cfscript>
+  // Set struct
+  sith = {
+    "name": "Darth Vader",
+    "side": "Dark",
+    "starfighter": "TIE fighter"
+  };
 
-// Serialize to JSON
-sithToJSON = serializeJSON(sith);
+  // Serialize to JSON
+  sithToJSON = serializeJSON(sith);
 
-// Deserialize from JSON
-sithFromJSON = deserializeJSON(sithToJSON);
+  // Deserialize from JSON
+  sithFromJSON = deserializeJSON(sithToJSON);
 
-// Dump
-WriteDump(sithToJSON);
-WriteDump(sithFromJSON);
+  // Dump
+  WriteDump(sithToJSON);
+  WriteDump(sithFromJSON);
+</cfscript>
 ```
 
 ---
@@ -395,24 +409,26 @@ WriteDump(sithFromJSON);
 
 **Script notation**
 ```cfm
-// Public function
-public struct function getSith(required numeric id) {
+<cfscript>
+  // Public function
+  public struct function getSith(required numeric id) {
 
-  // Do something with "id" and create new struct
-  sith = {
-    "id": "7",
-    "name": "Darth Vader"
-  };
+    // Do something with "id" and create new struct
+    sith = {
+      "id": "7",
+      "name": "Darth Vader"
+    };
 
-  // Return
-  return sith;
-}
+    // Return
+    return sith;
+  }
 
-// Access function
-sith = getSith(7);
+  // Access function
+  sith = getSith(7);
 
-// Dump return
-WriteDump(sith);
+  // Dump return
+  WriteDump(sith);
+</cfscript>
 ```
 
 ---
@@ -504,13 +520,15 @@ WriteDump(sith);
 
 **Script notation**
 ```cfm
-// Store procedure using "attribute-value" pairs
-spService = new storedproc();
-spService.setDatasource("myDataSource");
-spService.setProcedure("myStoredProcedure");
-spService.addParam(cfsqltype="cf_sql_integer", type="in", value="7";
-spService.addProcResult(name="myStoredProcedureResults");
-spService.execute();
+<cfscript>
+  // Store procedure using "attribute-value" pairs
+  spService = new storedproc();
+  spService.setDatasource("myDataSource");
+  spService.setProcedure("myStoredProcedure");
+  spService.addParam(cfsqltype="cf_sql_integer", type="in", value="7";
+  spService.addProcResult(name="myStoredProcedureResults");
+  spService.execute();
+</cfscript>
 ```
 
 ---
@@ -540,21 +558,21 @@ spService.execute();
 ```
 
 **Script notation**
-```cfm
-try {
+<cfscript>
+  try {
 
-  // Do work son!
+    // Do work son!
 
-} catch(database e) {
-  throw(message="It broke...", detail="Wasn't me.");
-} catch(any e) {
-  // Handle any exception type
-  WriteOutput("Type: " & e.type);
-  WriteOutput("Message: " & e.message);
-} finally {
-  // Always execute
-}
-```
+  } catch(database e) {
+    throw(message="It broke...", detail="Wasn't me.");
+  } catch(any e) {
+    // Handle any exception type
+    WriteOutput("Type: " & e.type);
+    WriteOutput("Message: " & e.message);
+  } finally {
+    // Always execute
+  }
+</cfscript>
 
 ---
 
@@ -568,6 +586,9 @@ try {
 
 **Script notation**
 ```cfm
-// Include
-include "path/to/include.cfm";
+
+<cfscript>
+  // Include
+  include "path/to/include.cfm";
+</cfscript>
 ```
