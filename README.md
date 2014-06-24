@@ -381,44 +381,82 @@ ColdFusion code guide for developers who are new to the language or need a quick
 ---
 
 ## <a name="functions">Functions</a>
+
+**Tag notation**
 ```cfm
-<!--- Set function --->
-<cffunction name="myFunction" output="{true|false}" access="{public|private|remote}" returnType="{void|:type}">
-  <!--- Function argument --->
-  <cfargument name="myArgument" type="{:type}" required="{true|false}" default="{:default}">
+<!--- Public function --->
+<cffunction name="getJedi" access="public" returnType="struct">
 
-  <!--- Do work son! --->
-  <cfset myVar = true>
+  <!--- Arguments --->
+  <cfargument name="id" type="numeric" required="true">
 
-  <!--- Function return --->
-  <cfreturn myVar>
+  <!--- Do something with "id" and create new struct --->
+  <cfset jedi = {
+    "id": "5",
+    "name": "Yoda"
+  }>
+
+  <!--- Return --->
+  <cfreturn jedi>
 </cffunction>
 
-<!--- Get function --->
-<cfset myVar = myFunction("myArgument")>
+<!--- Access function --->
+<cfset jedi = getJedi(5)>
+
+<!--- Dump function return --->
+<cfdump var="#jedi#">
+```
+
+**Script notation**
+```cfm
+<cfscript>
+  // Public function
+  public struct function getSith(required numeric id) {
+
+    // Do something with "id" and create new struct
+    sith = {
+      "id": "7",
+      "name": "Darth Vader"
+    };
+
+    // Return
+    return sith;
+  }
+
+  // Access function
+  sith = getSith(7);
+
+  // Dump return
+  WriteDump(sith);
+</cfscript>
 ```
 
 ---
 
 ## <a name="components">Components</a>
+
+**Tag notation**
 ```cfm
-<!--- Set component --->
 <cfcomponent>
-  <!--- Set public scope --->
+
+  <!--- Public scope --->
   <cfset this.master = "Yoda">
 
-  <!--- Set private scope --->
+  <!--- Private scope --->
   <cfset variables.padawan = "Kris">
 
-  <!--- Set public function --->
-  <cffunction name="getJedi" output="false" access="public" returnType="struct">
-    <cfargument name="jediId" type="integer" required="true">
+  <!--- Public function --->
+  <cffunction name="getJedi" access="public" returnType="struct">
+    <cfargument name="id" type="numeric" required="true">
 
-    <!--- Do something to get jedi data using #arguments.jediId# --->
-    <cfset jedi = {}>
+    <cfset jedi = {
+      "id": "5",
+      "name": "Yoda"
+    }>
 
     <cfreturn jedi>
   </cffunction>
+
 </cfcomponent>
 
 <!--- Create an instance of component (Jedi.cfc) --->
@@ -520,25 +558,17 @@ ColdFusion code guide for developers who are new to the language or need a quick
 ---
 
 ## <a name="includes">Includes</a>
+
+**Tag notation**
 ```cfm
 <!--- Include --->
 <cfinclude template="path/to/include.cfm">
+```
 
-<!--- Example --->
-<!doctype html>
-<html lang="en-US" dir="ltr">
-  <head>
-    <!--- Include "head.cfm" --->
-    <cfinclude template="/_partials/head.cfm">
-  </head>
-  <body>
-    <!--- Include "header.cfm" --->
-    <cfinclude template="/_partials/header.cfm">
-
-    <!--- Do work son! --->
-
-    <!--- Include "footer.cfm" --->
-    <cfinclude template="/_partials/footer.cfm">
-  </body>
-</html>
+**Script notation**
+```cfm
+// Include
+<cfscript>
+  include "path/to/include.cfm";
+</cfscript>
 ```
