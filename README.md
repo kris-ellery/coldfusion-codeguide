@@ -558,6 +558,7 @@ ColdFusion code guide for developers who are new to the language or need a quick
 ```
 
 **Script notation**
+```cfm
 <cfscript>
   try {
 
@@ -573,6 +574,7 @@ ColdFusion code guide for developers who are new to the language or need a quick
     // Always execute
   }
 </cfscript>
+```
 
 ---
 
