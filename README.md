@@ -534,43 +534,45 @@ ColdFusion code guide for developers who are new to the language or need a quick
 ---
 
 ## <a name="catch-try">Catch/Try</a>
+
+**Tag notation**
 ```cfm
-<!--- Try and catch exceptions --->
 <cftry>
 
   <!--- Do work son! --->
 
-  <cfcatch type="{:type}">
-    <!--- Handle exception --->
+  <cfcatch type="database">
+    <cfthrow message="It broke..." detail="Wasn't me.">
   </cfcatch>
-  <cfcatch type="{:type}">
-    <!--- Handle another exception type --->
+
+  <cfcatch type="any">
+    <!--- Handle any exception type --->
+    <cfoutput>"Type: " & #cfcatch.type#</cfoutput>
+    <cfoutput>"Message: " & #cfcatch.message#</cfoutput>
   </cfcatch>
-</cftry>
 
-<!--- Throw own error --->
-<cftry>
-
-  <!--- Do work son! --->
-
-  <cfcatch type="{:type}">
-    <cfthrow message="{:message}" type="{:type}" detail="{:detail}">
-  </cfcatch>
-</cftry>
-
-<!--- Use cffinally to always execute something --->
-<cftry>
-
-  <!--- Do work son! --->
-
-  <cfcatch type="{:type}">
-    <!--- Handle exception --->
-  </cfcatch>
   <cffinally>
     <!--- Always execute --->
   </cffinally>
 </cftry>
 ```
+
+**Script notation**
+<cfscript>
+  try {
+
+    // Do work son!
+
+  } catch(database e) {
+    throw(message="It broke...", detail="Wasn't me.");
+  } catch(any e) {
+    // Handle any exception type
+    WriteOutput("Type: " & e.type);
+    WriteOutput("Message: " & e.message);
+  } finally {
+    // Always execute
+  }
+</cfscript>
 
 ---
 
