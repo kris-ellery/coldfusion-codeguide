@@ -58,7 +58,7 @@ ColdFusion code guide for developers who are new to the language or need a quick
 **Tag notation**
 ```cfm
 <!--- Set array --->
-<cfset padawans = [ "Randy", "Sean", "Jake" ]>
+<cfset padawans = [ "Eric", "Sean", "Jake" ]>
 
 <!--- Array dump --->
 <cfdump var="#padawans#">
@@ -73,7 +73,7 @@ ColdFusion code guide for developers who are new to the language or need a quick
 ```cfm
 <cfscript>
   // Set array
-  masters = [ "Garrett", "Colin", "Yoda" ];
+  masters = [ "Qui-Gon Jinn", "Obi-Wan Kenobi", "Yoda" ];
 
   // Array dump
   WriteDump(masters);
@@ -158,7 +158,7 @@ ColdFusion code guide for developers who are new to the language or need a quick
   <cfcase value="Kris">
 
   </cfcase>
-  <cfcase value="Randy">
+  <cfcase value="Eric">
 
   </cfcase>
   <cfcase value="Sean, Jake">
