@@ -102,7 +102,7 @@ ColdFusion code guide for developers who are new to the language or need a quick
 <!--- Append item to struct using dot notation (case insensitive) --->
 <cfset padawan.side = "Light">
 
-<!--- Dumo struct --->
+<!--- Dump struct --->
 <cfdump var="#padawan#">
 
 <!--- Set struct and append content in single statement --->
@@ -525,7 +525,7 @@ ColdFusion code guide for developers who are new to the language or need a quick
   spService = new storedproc();
   spService.setDatasource("myDataSource");
   spService.setProcedure("myStoredProcedure");
-  spService.addParam(cfsqltype="cf_sql_integer", type="in", value="7";
+  spService.addParam(cfsqltype="cf_sql_integer", type="in", value="7");
   spService.addProcResult(name="myStoredProcedureResults");
   spService.execute();
 </cfscript>
